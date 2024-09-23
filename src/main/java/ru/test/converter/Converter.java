@@ -9,18 +9,18 @@ import java.util.function.Function;
  * @date 23.09.2024 22:29
  */
 public class Converter {
-	private static final Map<Class<?>, Function<String, ?>> converters = new HashMap<>();
+	private static final Map<Class<?>, Function<String, ?>> CONVERTERS = new HashMap<>();
 
 	static {
-		converters.put(Integer.class, Integer::valueOf);
-		converters.put(Double.class, Double::valueOf);
-		converters.put(Long.class, Long::valueOf);
-		converters.put(Float.class, Float::valueOf);
+		CONVERTERS.put(Integer.class, Integer::valueOf);
+		CONVERTERS.put(Double.class, Double::valueOf);
+		CONVERTERS.put(Long.class, Long::valueOf);
+		CONVERTERS.put(Float.class, Float::valueOf);
 	}
 
 	@SuppressWarnings("unchecked")
 	public <T> T convertTo(String value, Class<T> targetType) {
-		Function<String, ?> converter = converters.get(targetType);
+		Function<String, ?> converter = CONVERTERS.get(targetType);
 
 		if (converter == null) {
 			throw new IllegalArgumentException("Unsupported type: " + targetType);

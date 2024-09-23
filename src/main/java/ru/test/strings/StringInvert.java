@@ -46,7 +46,7 @@ public class StringInvert {
 		return result.toString();
 	}
 
-	public String StringInvertWithSpacesWithStringApi(String st) {
+	public String stringInvertWithSpacesWithStringApi(String st) {
 		return Arrays.stream(st.split("\\s+"))
 				.map(string -> new StringBuilder(string)
 						.reverse()
@@ -59,7 +59,7 @@ public class StringInvert {
 		List<String> validSeparators = List.of(".", ",", "!", "?", ";");
 		if (validSeparators.contains(separator)) {
 			result = Arrays.stream(st.split(separator))
-					.map(string -> new StringBuilder(string).reverse().toString().replaceAll("\\s+",""))
+					.map(string -> new StringBuilder(string).reverse().toString().replaceAll("\\s+", ""))
 					.collect(Collectors.joining(" "));
 		} else {
 			result = "Non valid separator";
@@ -67,7 +67,7 @@ public class StringInvert {
 		return result;
 	}
 
-	public String StringInvertWithSpacesWithStringApiAndReverseWordOrder(String st) {
+	public String stringInvertWithSpacesWithStringApiAndReverseWordOrder(String st) {
 		List<String> strings = new ArrayList<>(Arrays.stream(st.split("\\s+"))
 				.map(string -> new StringBuilder(string)
 						.reverse()

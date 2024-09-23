@@ -57,27 +57,27 @@ public class StringInvertTest {
 	}
 
 	@Test
-	public void StringinvertWithSpacesWithStringApi1() {
+	public void stringinvertWithSpacesWithStringApi1() {
 		StringInvert si = new StringInvert();
 		String string = "public static void main";
 		String expected = "cilbup citats diov niam";
-		assertThat(si.StringInvertWithSpacesWithStringApi(string)).isEqualTo(expected);
+		assertThat(si.stringInvertWithSpacesWithStringApi(string)).isEqualTo(expected);
 	}
 
 	@Test
-	public void StringinvertWithSpacesWithStringApi2() {
+	public void stringinvertWithSpacesWithStringApi2() {
 		StringInvert si = new StringInvert();
 		String string = "private String name";
 		String expected = "etavirp gnirtS eman";
-		assertThat(si.StringInvertWithSpacesWithStringApi(string)).isEqualTo(expected);
+		assertThat(si.stringInvertWithSpacesWithStringApi(string)).isEqualTo(expected);
 	}
 
 	@Test
-	public void StringinvertWithSpacesWithStringApi3() {
+	public void stringinvertWithSpacesWithStringApi3() {
 		StringInvert si = new StringInvert();
 		String string = "int count = 0";
 		String expected = "tni tnuoc = 0";
-		assertThat(si.StringInvertWithSpacesWithStringApi(string)).isEqualTo(expected);
+		assertThat(si.stringInvertWithSpacesWithStringApi(string)).isEqualTo(expected);
 	}
 
 	@Test
@@ -108,10 +108,10 @@ public class StringInvertTest {
 	}
 
 	@Test
-	public void StringInvertWithSpacesWithStringApiAndReverseWordOrder1() {
+	public void stringInvertWithSpacesWithStringApiAndReverseWordOrder1() {
 		StringInvert si = new StringInvert();
 		String string = "public static void main";
 		String expected = "niam diov citats cilbup";
-		assertThat(si.StringInvertWithSpacesWithStringApiAndReverseWordOrder(string)).isEqualTo(expected);
+		assertThat(si.stringInvertWithSpacesWithStringApiAndReverseWordOrder(string)).isEqualTo(expected);
 	}
 }
