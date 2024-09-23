@@ -2,6 +2,7 @@ package ru.test.converter;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -20,12 +21,12 @@ public class Converter {
 
 	@SuppressWarnings("unchecked")
 	public <T> T convertTo(String value, Class<T> targetType) {
-		Function<String, ?> converter = CONVERTERS.get(targetType);
+		Optional<Function<String, ?>> optional = Optional.ofNullable(CONVERTERS.get(targetType));
 
-		if (converter == null) {
+		if (optional.isEmpty()) {
 			throw new IllegalArgumentException("Unsupported type: " + targetType);
 		}
 
-		return (T) converter.apply(value);
+		return (T) optional.get().apply(value);
 	}
 }
