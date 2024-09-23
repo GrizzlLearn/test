@@ -13,7 +13,8 @@ public class ConverterTest {
 		Converter con = new Converter();
 		String string = "123.12";
 		Double expected = 123.12d;
-		assertThat(con.convertTo(string, Double.class)).isEqualTo(expected);
+		Class<Double> targetType = Double.class;
+		assertThat(con.convertTo(string, targetType)).isEqualTo(expected);
 	}
 
 	@Test
@@ -21,7 +22,8 @@ public class ConverterTest {
 		Converter con = new Converter();
 		String string = "123";
 		Integer expected = 123;
-		assertThat(con.convertTo(string, Integer.class)).isEqualTo(expected);
+		Class<Integer> targetType = Integer.class;
+		assertThat(con.convertTo(string, targetType)).isEqualTo(expected);
 	}
 
 	@Test
@@ -29,7 +31,8 @@ public class ConverterTest {
 		Converter con = new Converter();
 		String string = "123";
 		Long expected = 123L;
-		assertThat(con.convertTo(string, Long.class)).isEqualTo(expected);
+		Class<Long> targetType = Long.class;
+		assertThat(con.convertTo(string, targetType)).isEqualTo(expected);
 	}
 
 	@Test
@@ -37,6 +40,18 @@ public class ConverterTest {
 		Converter con = new Converter();
 		String string = "123.12";
 		Float expected = 123.12f;
-		assertThat(con.convertTo(string, Float.class)).isEqualTo(expected);
+		Class<Float> targetType = Float.class;
+		assertThat(con.convertTo(string, targetType)).isEqualTo(expected);
+	}
+
+	@Test
+	public void convertToBooleanThenThrowExceprion() {
+		Converter con = new Converter();
+		String string = "1";
+		Integer expected = 1;
+		Class<Boolean> targetType = Boolean.class;
+		assertThatThrownBy(() -> con.convertTo(string, Boolean.class))
+				.isInstanceOf(IllegalArgumentException.class)
+				.hasMessage("Unsupported type: " + targetType);
 	}
 }
